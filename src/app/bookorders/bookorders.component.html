@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Order List</h2>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Ordered By</th>
+        <th>Book Name</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="books">
+      <tr *ngFor="let book of books">
+        <td>{{ book.username }}</td>
+        <td>{{ book.name }}</td>
+        <td><button [disabled]="book.approved == 1" type="button" class="btn btn-success" (click)="aproveBook(book.id)">Approve Order</button></td>
+        <td><button [disabled]="book.approved == 2" type="button" class="btn btn-danger" (click)="rejectBook(book.id)">Reject Order</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

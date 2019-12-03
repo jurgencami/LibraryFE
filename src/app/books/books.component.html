@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Book List</h2>
+  <div class="form-group form-inline" >
+    <label for="name">Add/Edit Book: </label>
+    <input type="name" [(ngModel)]="book.name" class="form-control" placeholder="Enter book name">
+    <button type="button" (click)="saveBook(book)" class="btn btn-success">Save</button>
+  </div>
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Book Name</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="books">
+            <tr *ngFor="let book of books">
+              <td>{{ book.name }}</td>
+              <td>{{ book.owner }}</td>
+              <td><button type="button" class="btn btn-info" (click)="selectBook(book)">Edit Book</button></td>
+              <td><button type="button" class="btn btn-danger" (click)="deleteBook(book.id)">Delete Book</button></td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+
+
